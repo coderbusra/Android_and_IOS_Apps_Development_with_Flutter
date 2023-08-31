@@ -4,18 +4,22 @@
  */
 void main(List<String> args) {
   print("Anne çocuğunu ekmek almaya yollar");
-  uzunSurenIslem();
-  print("Peynir zeytin hazırlanır");
+  print("Çocuk ekmek almak için evden çıkar");
+  Future<String> sonuc = uzunSurenIslem();
+  print(sonuc);
+  print("Peynir ze ytin hazırlanır");
   print("Kahvaltı hazır!");
 }
 
-void uzunSurenIslem() {
-  print("Çocuk ekmek almak için evden çıkar");
+Future<String> uzunSurenIslem() {
+  
   // Senkron çalışma örneği
   // sleep(Duraction(seconds: 10));
 
   // Asenkron yapılar 
-  Future.delayed(Duration(seconds: 10), () {
-    print("Çocuk ekmekle eve girer");
+  Future<String> sonuc = Future.delayed(Duration(seconds: 10), () {
+    return "Çocuk ekmekle eve girer";
   });
+
+  return sonuc;
 }
