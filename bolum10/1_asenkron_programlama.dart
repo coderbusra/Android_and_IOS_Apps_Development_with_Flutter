@@ -6,19 +6,27 @@ void main(List<String> args) {
   print("Anne çocuğunu ekmek almaya yollar");
   print("Çocuk ekmek almak için evden çıkar");
   Future<String> sonuc = uzunSurenIslem();
+
+  sonuc.then((String value) => print(value))
+  .catchError((hata) {
+    print(hata);
+  });
+
   print(sonuc);
-  print("Peynir ze ytin hazırlanır");
+  print("Peynir zeytin hazırlanır");
   print("Kahvaltı hazır!");
 }
 
-Future<String> uzunSurenIslem() {
-  
-  // Senkron çalışma örneği
-  // sleep(Duraction(seconds: 10));
+// Senkron çalışma örneği
+// sleep(Duraction(seconds: 10));
 
-  // Asenkron yapılar 
-  Future<String> sonuc = Future.delayed(Duration(seconds: 10), () {
-    return "Çocuk ekmekle eve girer";
+// Asenkron yapılar 
+
+Future<String> uzunSurenIslem() {  
+  
+  return Future.delayed(Duration(seconds: 2), () {
+    //return "Çocuk ekmekle eve girer";
+    throw Exception("Bakkalda ekmem kalmamış");
   });
 
   return sonuc;
