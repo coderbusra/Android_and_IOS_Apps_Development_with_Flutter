@@ -1,4 +1,4 @@
-void main(List<String> args) {
+void main(List<String> args) async {
   print("İnternetten kişi verisi getirilecek");
 
   kisiyleIlgiliIslemler();
@@ -9,11 +9,11 @@ void main(List<String> args) {
 
 void kisiyleIlgiliIslemler() async {
   String kisi = await kisiVerisiniGetiri();
-  print(kisi.length);
+    print(kisi.length);
 }
 
 Future<String> kisiVerisiniGetiri() {
-  return Future.delayed(Duration(seconds: 3), (){
-    return "Kişi adı : Emre id: 100";
+  return Future.delayed(Duration(seconds: 10), (){
+    return "Kişi adı : Emre ve id: 100";
   });
 }
