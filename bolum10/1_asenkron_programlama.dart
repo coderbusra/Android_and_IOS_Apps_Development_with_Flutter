@@ -10,7 +10,7 @@ void main(List<String> args) {
   sonuc.then((String value) => print(value))
   .catchError((hata) {
     print(hata);
-  });
+  }).whenComplete(() => print("Ekmek alma operasyonu bitti"));
 
   print(sonuc);
   print("Peynir zeytin hazırlanır");
@@ -24,9 +24,9 @@ void main(List<String> args) {
 
 Future<String> uzunSurenIslem() {  
   
-  return Future.delayed(Duration(seconds: 2), () {
-    //return "Çocuk ekmekle eve girer";
-    throw Exception("Bakkalda ekmem kalmamış");
+  Future<String> sonuc = Future.delayed(Duration(seconds: 2), () {
+    return "Çocuk ekmekle eve girer";
+    //throw Exception("Bakkalda ekmek kalmamış");
   });
 
   return sonuc;
